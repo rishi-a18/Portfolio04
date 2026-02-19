@@ -1,6 +1,7 @@
-import { Award, Sparkles, Trophy } from "lucide-react";
+import { Award, Sparkles, Trophy, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 const achievements = [
@@ -10,6 +11,7 @@ const achievements = [
       "Selected for the prestigious Infosys Springboard Pragati Program, focusing on skill development and career readiness for women in technology.",
     icon: Trophy,
     featured: true,
+    link: "/cohort-6-completion.pdf",
   },
   {
     title: "AI Tools Workshop Conductor",
@@ -17,6 +19,13 @@ const achievements = [
       "Conducted a workshop on AI Tools usage, sharing knowledge about practical applications of artificial intelligence with peers.",
     icon: Sparkles,
   },
+  {
+    title: "Internship Completion",
+    description:
+      "Successfully completed internship, gaining practical experience and industry insights.",
+    icon: Award,
+    link: "/internship.pdf",
+  }
 ];
 
 const certifications = [
@@ -24,6 +33,7 @@ const certifications = [
   "Web Development Fundamentals",
   "Database Management",
   "Data Structures & Algorithms",
+  "Machine Learning Basics",
 ];
 
 export function AchievementsSection() {
@@ -56,16 +66,23 @@ export function AchievementsSection() {
                       <div className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center shrink-0">
                         <achievement.icon className="w-8 h-8" />
                       </div>
-                      <div>
+                      <div className="flex-1">
                         <Badge className="mb-2 bg-primary/20 text-primary border-none">
                           Featured
                         </Badge>
                         <h3 className="font-semibold text-xl mb-2">
                           {achievement.title}
                         </h3>
-                        <p className="text-muted-foreground">
+                        <p className="text-muted-foreground mb-4">
                           {achievement.description}
                         </p>
+                        {achievement.link && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="gap-2">
+                              View Certificate <ExternalLink className="w-4 h-4" />
+                            </a>
+                          </Button>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -82,15 +99,24 @@ export function AchievementsSection() {
               <AnimatedSection key={achievement.title} animation="fade-up" delay={200 + index * 100}>
                 <Card className="bg-card border-border hover:border-primary/50 transition-colors h-full">
                   <CardContent className="p-6">
-                    <div className="flex items-start gap-4">
+                    <div className="flex items-start gap-4 h-full">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                         <achievement.icon className="w-6 h-6 text-primary" />
                       </div>
-                      <div>
+                      <div className="flex flex-col flex-1">
                         <h3 className="font-semibold mb-2">{achievement.title}</h3>
-                        <p className="text-muted-foreground text-sm">
+                        <p className="text-muted-foreground text-sm mb-4">
                           {achievement.description}
                         </p>
+                        {achievement.link && (
+                          <div className="mt-auto">
+                            <Button variant="outline" size="sm" asChild className="w-full sm:w-auto">
+                              <a href={achievement.link} target="_blank" rel="noopener noreferrer" className="gap-2">
+                                View Certificate <ExternalLink className="w-4 h-4" />
+                              </a>
+                            </Button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CardContent>

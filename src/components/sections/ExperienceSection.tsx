@@ -1,6 +1,7 @@
-import { Calendar, MapPin, CheckCircle } from "lucide-react";
+import { Calendar, MapPin, CheckCircle, ExternalLink } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/AnimatedSection";
 
 const experiences = [
@@ -10,6 +11,7 @@ const experiences = [
     location: "Remote",
     period: "May 2025 - July 2025",
     type: "Internship",
+    link: "/internship.pdf",
     responsibilities: [
       "Built responsive, user-focused web interfaces using modern HTML, CSS, and JavaScript",
       "Collaborated with team members on real-world client projects",
@@ -51,7 +53,16 @@ export function ExperienceSection() {
                         <h3 className="font-semibold text-lg">{exp.title}</h3>
                         <p className="text-primary font-medium">{exp.company}</p>
                       </div>
-                      <Badge variant="secondary">{exp.type}</Badge>
+                      <div className="flex flex-col items-end gap-2">
+                        <Badge variant="secondary">{exp.type}</Badge>
+                        {exp.link && (
+                          <Button variant="outline" size="sm" asChild>
+                            <a href={exp.link} target="_blank" rel="noopener noreferrer" className="gap-2 text-xs h-8">
+                              View Certificate <ExternalLink className="w-3 h-3" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </div>
 
                     <div className="flex flex-wrap gap-4 text-sm text-muted-foreground mb-4">

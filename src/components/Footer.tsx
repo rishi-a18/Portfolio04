@@ -88,7 +88,7 @@ export function Footer() {
 
         <div className="border-t border-border pt-8 text-center">
           <p className="text-sm text-muted-foreground flex items-center justify-center gap-1">
-            © 2025 Sanapathi Rishitha reddy 
+            © 2026 Sanapathi Rishitha reddy
           </p>
         </div>
       </div>
