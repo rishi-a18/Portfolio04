@@ -28,16 +28,18 @@ export function HeroSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
           {/* Profile Photo */}
-          <div className="animate-fade-up">
+          <div className="animate-fade-up animate-float">
             <div className="relative">
               <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center border-2 border-primary/30 glow-pink p-1">
-                <img 
-                  src={profilePhoto} 
-                  alt="Sanapathi Rishitha Reddy" 
+                <img
+                  src={profilePhoto}
+                  alt="Sanapathi Rishitha Reddy"
                   className="w-full h-full rounded-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background" />
+              <div className="absolute -bottom-2 -right-2 w-6 h-6 bg-green-500 rounded-full border-4 border-background overflow-hidden relative">
+                <div className="absolute inset-0 bg-green-500 animate-ping opacity-75" />
+              </div>
             </div>
           </div>
 
@@ -56,11 +58,10 @@ export function HeroSection() {
                 {roles.map((role, index) => (
                   <span
                     key={role}
-                    className={`px-3 py-1 rounded-full text-sm font-medium ${
-                      index === 2
+                    className={`px-3 py-1 rounded-full text-sm font-medium ${index === 2
                         ? "bg-primary text-primary-foreground"
                         : "bg-secondary text-secondary-foreground"
-                    }`}
+                      }`}
                   >
                     {role}
                   </span>

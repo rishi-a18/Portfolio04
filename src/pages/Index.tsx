@@ -9,10 +9,12 @@ import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { AchievementsSection } from "@/components/sections/AchievementsSection";
 import { LeadershipSection } from "@/components/sections/LeadershipSection";
 import { ContactSection } from "@/components/sections/ContactSection";
+import { ScrollProgress } from "@/components/ScrollProgress";
 
 const Index = () => {
   return (
     <ThemeProvider>
+      <ScrollProgress />
       <div className="min-h-screen bg-background">
         <Navigation />
         <main>
